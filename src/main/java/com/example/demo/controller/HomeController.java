@@ -15,7 +15,7 @@ public class HomeController {
     public String index(Model model){
         //In order to make it work we need to create a "home" directory inside "Templates" inside "resources".
         // Once the folder is called "templates.home" create an "index.html" file inside
-        return "home/index";
+        return "templates/home/index.html";
     }
 
 }
