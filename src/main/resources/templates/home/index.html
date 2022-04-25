@@ -1,0 +1,240 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B.B. Project</title>
+</head>
+<script>
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+    }
+</script>
+<style>
+
+    .body{
+        background-color: #f4f4f4;
+    }
+
+    .Title{
+        font-family: Arial,system-ui;
+        color: #191919;
+        text-align: center;
+        font-size: 70px;
+    }
+
+    .Subtitle{
+        font-family: Arial,system-ui;
+        font-size: smaller;
+        color: #191919;
+        text-align: center;
+        margin-top: -2%;
+    }
+
+    .Header{
+        font-family: Arial,system-ui;
+        color: #191919;
+        margin-left: 2%;
+        margin-top: 7%;
+    }
+
+    .Paragraph{
+        display: flex;
+        flex-direction: row;
+        margin-left: 4%;
+    }
+
+    .Paragraph_Body{
+        line-height: 22px;
+        font-family: Arial,system-ui;
+        color: #191919;
+        margin-top: -0.2%;
+    }
+
+    .SingleBall_Gif{
+        box-shadow: 0 0 20px lightgray;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-left:15%;
+        margin-top: -0.5%;
+    }
+
+    .SecondParagraph_Body{
+        line-height: 22px;
+        font-family: Arial,system-ui;
+        color: #191919;
+        margin-top: 2.5%;
+    }
+
+    .TwoBall_Gif{
+        box-shadow: 0 0 20px lightgray;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-left:14.2%;
+        margin-top: 1%;
+    }
+
+
+    .InitializeMethod_img{
+        box-shadow: 0 0 10px gray;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-top: -0.5%;
+        margin-left: 6.5%;
+        width: 50%;
+    }
+
+    .FourthParagraph_Body{
+        line-height: 22px;
+        font-family: Arial,system-ui;
+        color: #191919;
+    }
+
+    .ControllerClass_img{
+        box-shadow: 0 0 10px gray;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-top: 1%;
+        margin-left: 8.7%;
+        width: 50%;
+    }
+
+    .FifthParagraph_Body{
+        line-height: 22px;
+        font-family: Arial,system-ui;
+        color: #191919;
+    }
+
+    .Main_img{
+        box-shadow: 0 0 10px gray;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-top: 1%;
+        margin-left: 9%;
+        width: 50%;
+    }
+
+    .LastParagraph{
+        margin-left: 4%;
+        padding-bottom: 5%;
+    }
+
+    .the_end{
+        font-family: Arial,system-ui;
+        text-align: center;
+        font-size: small;
+        color: #cbcbcb;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+    }
+
+    .progress-container {
+        width: 99%;
+        height: 4px;
+        background: #ccc;
+    }
+
+    .progress-bar {
+        height: 4px;
+        background: #ec8914;
+        width: 0%;
+    }
+
+</style>
+<body class="body">
+<div class="header">
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+</div>
+
+<h1 class="Title">Bouncing Balls Project</h1>
+<h4 class="Subtitle">By Andrea Di Claudio, Nicolas Javier Jan, Daniil Strelan</h4>
+
+<h1 class="Header">• Implementation</h1>
+<div class="Paragraph">
+
+    <p class="Paragraph_Body">
+        On the first meeting we started by reading the assignment and deciding <br>
+        our initial scope. <br>
+        <br>From the very beginning we wanted to create a small software with a <br>
+        single ball bouncing correctly on the border of the scene created in <br>
+        JavaFX to better understand how to work with collisions.
+    </p>
+
+    <img class="SingleBall_Gif" th:src="@{/images_gif/Ballcopy.gif}" alt="Single Ball Bouncing">
+</div>
+
+<div class="Paragraph">
+    <p class="SecondParagraph_Body">
+        After achieving a ball bouncing correctly on the scene border, we decided<br>
+        to add a second ball with different size. <br>
+        The new ball is "heavier" which means that the first (blue) ball will<br>
+        bounce off when it collides with the second (purple) ball.
+    </p>
+
+    <img class="TwoBall_Gif" alt="TwoBall_Gif" th:src="@{images_gif/Two_balls%20copy.gif}">
+</div>
+
+<h1 class="Header">• The Code</h1>
+
+<div class="Paragraph">
+
+    <p class="Paragraph_Body">
+        The project has two java classes and a single FXML file.<br>
+        <br>One class is the controller class which contains the method to move the ball<br>
+        (one method for each ball), the "initialize" method, and the JavaFX <br>
+        properties.<br>
+        <br>Inside the "initialize" method we have created two threads, one for each ball. <br>
+        The threads call the "moveBall" method.
+    </p>
+
+    <img class="InitializeMethod_img" th:src="@{images_gif/Initialize_method .jpg}" alt="InitializeMethod_img">
+</div>
+
+<div class="Paragraph">
+
+    <p class="FourthParagraph_Body">
+        The "moveBall" method uses the "TimeLine" class which is an animation<br>
+        and processes individual keyframe sequentially.<br>
+        Inside the method we have also collision detections both for the scene<br>
+        and the balls.
+    </p>
+
+    <img class="ControllerClass_img" th:src="@{images_gif/ControllerClass.jpg}" alt="ControllerClass_img">
+</div>
+
+<div class="Paragraph">
+
+    <p class="FifthParagraph_Body">
+        The second class is the actual application that has a "start" method and<br>
+        the "main" method.<br>
+        <br>The "start" method has an FXMLoader object that loads an object<br>
+        hierarchy from an XML document.<br>
+        <br>The "main" method launches the application.
+    </p>
+
+    <img class="Main_img" th:src="@{images_gif/Main.png}" alt="Main_img">
+</div>
+
+<h1 class="Header">• Application</h1>
+
+<div class="LastParagraph">
+    <a href="https://www.dropbox.com/s/jlt28cz44krdlz1/BouncingBallsBoys.jar?dl=0" target="_blank">
+        <p class="Paragraph_Body">
+            Download here!
+        </p>
+    </a>
+</div>
+<p class="the_end">---- The end ----</p>
+</body>
+</html>
