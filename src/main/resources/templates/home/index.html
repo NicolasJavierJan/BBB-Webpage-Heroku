@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>B.B. Project</title>
 </head>
 <script>
-    window.onscroll = function() {myFunction()};
+    window.onscroll = function () {
+        myFunction()
+    };
 
     function myFunction() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -16,70 +18,70 @@
 </script>
 <style>
 
-    .body{
+    .body {
         background-color: #f4f4f4;
     }
 
-    .Title{
-        font-family: Arial,system-ui;
+    .Title {
+        font-family: Arial, system-ui;
         color: #191919;
         text-align: center;
         font-size: 70px;
     }
 
-    .Subtitle{
-        font-family: Arial,system-ui;
+    .Subtitle {
+        font-family: Arial, system-ui;
         font-size: smaller;
         color: #191919;
         text-align: center;
-        margin-top: -2%;
+        /*margin-top: -2%;*/
     }
 
-    .Header{
-        font-family: Arial,system-ui;
+    .Header {
+        font-family: Arial, system-ui;
         color: #191919;
         margin-left: 2%;
         margin-top: 7%;
     }
 
-    .Paragraph{
+    .Paragraph {
         display: flex;
         flex-direction: row;
         margin-left: 4%;
     }
 
-    .Paragraph_Body{
+    .Paragraph_Body {
         line-height: 22px;
-        font-family: Arial,system-ui;
+        font-family: Arial, system-ui;
         color: #191919;
         margin-top: -0.2%;
     }
 
-    .SingleBall_Gif{
+    .SingleBall_Gif {
         box-shadow: 0 0 20px lightgray;
         border-radius: 10px;
         border: 1px solid black;
-        margin-left:15%;
+        margin-left: 15%;
         margin-top: -0.5%;
     }
 
-    .SecondParagraph_Body{
+    .SecondParagraph_Body {
         line-height: 22px;
-        font-family: Arial,system-ui;
+        font-family: Arial, system-ui;
         color: #191919;
         margin-top: 2.5%;
     }
 
-    .TwoBall_Gif{
+    .TwoBall_Gif {
         box-shadow: 0 0 20px lightgray;
         border-radius: 10px;
         border: 1px solid black;
-        margin-left:14.2%;
+        margin-left: 14.2%;
         margin-top: 1%;
     }
 
 
-    .InitializeMethod_img{
+    .InitializeMethod_img {
         box-shadow: 0 0 10px gray;
         border-radius: 10px;
         border: 1px solid black;
@@ -88,13 +90,13 @@
         width: 50%;
     }
 
-    .FourthParagraph_Body{
+    .FourthParagraph_Body {
         line-height: 22px;
-        font-family: Arial,system-ui;
+        font-family: Arial, system-ui;
         color: #191919;
     }
 
-    .ControllerClass_img{
+    .ControllerClass_img {
         box-shadow: 0 0 10px gray;
         border-radius: 10px;
         border: 1px solid black;
@@ -103,13 +105,13 @@
         width: 50%;
     }
 
-    .FifthParagraph_Body{
+    .FifthParagraph_Body {
         line-height: 22px;
-        font-family: Arial,system-ui;
+        font-family: Arial, system-ui;
         color: #191919;
     }
 
-    .Main_img{
+    .Main_img {
         box-shadow: 0 0 10px gray;
         border-radius: 10px;
         border: 1px solid black;
@@ -118,13 +120,13 @@
         width: 50%;
     }
 
-    .LastParagraph{
+    .LastParagraph {
         margin-left: 4%;
         padding-bottom: 5%;
     }
 
-    .the_end{
-        font-family: Arial,system-ui;
+    .the_end {
+        font-family: Arial, system-ui;
         text-align: center;
         font-size: small;
         color: #cbcbcb;
@@ -158,8 +160,21 @@
 </div>
 
 <h1 class="Title">Bouncing Balls Project</h1>
-<h4 class="Subtitle">By Andrea Di Claudio, Nicolas Javier Jan, Daniil Strelan</h4>
+<h4 class="Subtitle">
+    Brought to you by
+</h4>
 
+
+<div class="Subtitle" >
+    <h4 th:each="boy : ${boys}" >
+        <span th:text="${boy.getName()}"></span>
+        <span th:text="${boy.getSurname()}"></span>
+    </h4>
+</div>
+
+<div>
+
+</div>
 <h1 class="Header">• Implementation</h1>
 <div class="Paragraph">
 
